@@ -1,7 +1,7 @@
 # Randomly
 Upload pictures and select randomly one of them
 
-### How it works? 
+### What it is? 
 
 - Simple home page with a drop-in section or browse file button
 - A countdown of the number of images that you stored
