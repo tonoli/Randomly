@@ -2,13 +2,10 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-var multer = require('multer');
 var cors = require('cors');
 var Loki = require('lokijs');
 var fs = require('fs');
 var routes = require('./routes/index');
-
-
 
 // Init App
 var app = express();
@@ -19,7 +16,6 @@ app.set('view engine', 'ejs');
 
 // BodyParser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set Static Folders
 app.use(express.static(path.join(__dirname, 'public')));
@@ -32,11 +28,6 @@ app.use('/', routes);
 app.use(function(req, res, next){
     res.status(404).render('404');
 });
-
-// multer configuration
-const COLLECTION_NAME = 'images';
-const upload = multer({ dest: './uploads' });
-const db = new Loki('./uploads/db.json', { persistenceMethod: 'fs' });
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));
