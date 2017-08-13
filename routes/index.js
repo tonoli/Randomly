@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 var multer = require('multer');
 var path = require('path');
+var fs = require('fs');
+var _ = require('lodash');
 
 // Accept images (jpeg, png, gif) only
 const imageFilter = function (req, file, cb) {
-    // accept image only
     if (!file.originalname.match(/\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/)) {
         return cb(console.log('Only image files are allowed!'), false);
     }
@@ -28,44 +29,28 @@ router.post('/', function(req, res) {
 	}).single('image');
 	upload(req, res, function(err) {
     try {
-        console.log(req.body);
-        console.log(req.file);
         res.sendStatus(204).end('File is uploaded');
     } catch (err) {
-        console.log('ERROR upload');
         res.sendStatus(404);
     }
 	})
 })
-/*
-    try {
-        console.log(req.body);
-        console.log(req.file);
-        res.sendStatus(204).end('File is uploaded');
-    } catch (err) {
-        console.log('ERROR upload');
-        res.sendStatus(404);
-    }
-})
-*/
-router.get('/images', function (req, res){
-    try {
-        const col = loadCollection(COLLECTION_NAME, db);
-        res.send(col.data);
-    } catch (err) {
-        res.sendStatus(404);
-    }
-})
+
+// Galerie des images (to do)
 
 // Get Homepage
 router.get('/', function(req, res){
   res.render('index');
 })
 
-// Get Random image page
 
+// Get Random image page
 router.get('/randomly', function(req, res){
-  res.render('randomly');
+
+// Get a random image through the uploads folder
+  var fileNames = fs.readdirSync('./uploads');
+  var image = fileNames[Math.floor(Math.random() * fileNames.length)];
+  res.render('randomly', {image : image} );
 })
 
 module.exports = router;
