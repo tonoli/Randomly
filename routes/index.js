@@ -3,7 +3,6 @@ var router = express.Router();
 var multer = require('multer');
 var path = require('path');
 var fs = require('fs');
-var _ = require('lodash');
 
 // Accept images (jpeg, png, gif) only
 const imageFilter = function (req, file, cb) {
@@ -29,7 +28,7 @@ router.post('/', function(req, res) {
 	}).single('image');
 	upload(req, res, function(err) {
     try {
-        res.sendStatus(204).end('File is uploaded');
+        res.redirect('/');
     } catch (err) {
         res.sendStatus(404);
     }
@@ -40,16 +39,17 @@ router.post('/', function(req, res) {
 
 // Get Homepage
 router.get('/', function(req, res){
-  res.render('index');
+  var fileNames = fs.readdirSync('./uploads');
+  res.render('index', {nb : fileNames.length});
 })
-
 
 // Get Random image page
 router.get('/randomly', function(req, res){
 
 // Get a random image through the uploads folder
   var fileNames = fs.readdirSync('./uploads');
-  var image = fileNames[Math.floor(Math.random() * fileNames.length)];
+  var index = Math.floor(Math.random() * fileNames.length)
+  var image = fileNames[index];
   res.render('randomly', {image : image} );
 })
 
