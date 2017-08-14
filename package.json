@@ -2,9 +2,9 @@
   "name": "randomly",
   "version": "0.0.1",
   "description": "Randomly app",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

@@ -11,9 +11,6 @@ var app = express();
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-// BodyParser Middleware
-app.use(bodyParser.json());
-
 // Set Static Folders
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'uploads')));
