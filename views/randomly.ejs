@@ -16,7 +16,17 @@
 	<div class="wrapper">
 		<h1>This is the image we have chosen</h1>
 		<div class="img">
+			<%
+			if(typeof(image) == 'undefined'){
+				%><p>There is no image yet in memory</p>
+			<%}
+			else {%>
     	<img src="<%=image%>">
+			<%}%>
+		</div>
+		<div class="btn">
+			<a href="/randomly">Retry</a>
+			<a href="/">Home</a>
 		</div>
 	<div>
 	</body>

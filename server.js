@@ -4,7 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var Loki = require('lokijs');
-var fs = require('fs');
+var fs = require('fs-extra');
 var routes = require('./routes/index');
 
 // Init App
@@ -30,7 +30,7 @@ app.use(function(req, res, next){
 });
 
 // Set Port
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 8080));
 
 // Lounch app
 app.listen(app.get('port'), function(){
