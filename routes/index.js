@@ -22,7 +22,7 @@ var storage = multer.diskStorage({
 	}
 })
 
-// Upload images thanks to multer middleware
+// Upload images thanks to multer middleware and then reload the page
 router.post('/', function(req, res) {
 	var upload = multer({
 		storage: storage,
@@ -49,7 +49,11 @@ router.get('/', function(req, res){
 
 // Get Random image page
 router.get('/randomly', function(req, res){
-// Get a random image through the uploads folder
+
+// Here we get through the uploads folder and randomly select one image note
+// that it's possible to have 2 times the same image when reload the page
+// because it's possible that it randomly choses the same image twice
+
   fileNames = fs.readdirSync('./uploads');
   console.log(fileNames);
   var index = Math.floor(Math.random() * fileNames.length)
@@ -58,7 +62,9 @@ router.get('/randomly', function(req, res){
 })
 
 // Clear all the files in the uploads folder
-// We get all the names of the files in the folder then romove them then we reload
+// We get all the names of the files in the folder
+// then romove them then we reload
+
 router.get('/clear', function(req, res){
   var i = 0;
   fileNames = fs.readdirSync('./uploads');
