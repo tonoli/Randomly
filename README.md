@@ -1,6 +1,8 @@
 # Randomly
 Upload pictures and select randomly one of them
 
+![screen shot 2017-08-14 at 17 11 25](https://user-images.githubusercontent.com/17257576/29277978-b2cc90cc-8113-11e7-9cb3-183f1cdd3537.png)
+
 ### What it is? 
 
 - Simple home page with a browse file button
