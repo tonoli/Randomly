@@ -1,6 +1,4 @@
 
-
-
 body {
   background: #ff9966;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #ff5e62, #ff9966);  /* Chrome 10-25, Safari 5.1-6 */
@@ -16,6 +14,10 @@ h1 {
   font-size: 60px;
   font-family: 'VT323', monospace;
   color: #fff;
+}
+
+#buttons {
+  display: inline-block;
 }
 
 a {
