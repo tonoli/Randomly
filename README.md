@@ -25,3 +25,4 @@ I tried to comment as much as possible my code so it's readable.
 - **cd Randomly**
 - **npm install**
 - **npm start**
+- **Website started at localhost:8080/**
