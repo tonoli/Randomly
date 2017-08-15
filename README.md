@@ -18,3 +18,10 @@ For this app I set a NodeJS server with Express and then use 2 princimal middlew
 - *fs-extra* is the middleware that allows me to manipulate the FileSystem in my server (browse, create and delete files)
 
 I tried to comment as much as possible my code so it's readable.
+
+### Install
+
+**git clone github.com/tonoli/Randomly**
+**cd Randomly**
+**npm install**
+**npm start**
