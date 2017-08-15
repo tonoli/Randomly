@@ -21,7 +21,7 @@ I tried to comment as much as possible my code so it's readable.
 
 ### Install
 
-**git clone github.com/tonoli/Randomly**
-**cd Randomly**
-**npm install**
-**npm start**
+- **git clone github.com/tonoli/Randomly**
+- **cd Randomly**
+- **npm install**
+- **npm start**
