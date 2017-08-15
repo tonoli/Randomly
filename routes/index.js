@@ -39,13 +39,17 @@ router.post('/', function(req, res) {
 
 // Get all the images names in the upload folder in an array thanks to FileSystem middleware
 var fileNames = fs.readdirSync('./uploads');
+console.log('Root : fileNames -'+ fileNames.length);
 console.log(fileNames);
 
 // Get Homepage
 router.get('/', function(req, res){
-  fileNames = fs.readdirSync('./uploads');
-  res.render('index', {nb : fileNames.length});
+    fileNames = fs.readdirSync('./uploads');
+    console.log('GET : fileNames -'+ fileNames.length);
+    console.log(fileNames);
+    res.render('index', {nb : fileNames.length});
 })
+
 
 // Get Random image page
 router.get('/randomly', function(req, res){
@@ -54,12 +58,14 @@ router.get('/randomly', function(req, res){
 // that it's possible to have 2 times the same image when reload the page
 // because it's possible that it randomly choses the same image twice
 
-  fileNames = fs.readdirSync('./uploads');
-  console.log(fileNames);
-  var index = Math.floor(Math.random() * fileNames.length)
-  var image = fileNames[index];
-  res.render('randomly', {image : image} );
+    fileNames = fs.readdirSync('./uploads');
+    console.log('RAND : fileNames -'+ fileNames.length);
+    console.log(fileNames);
+    var index = Math.floor(Math.random() * fileNames.length)
+    var image = fileNames[index];
+    res.render('randomly', {image : image});
 })
+
 
 // Clear all the files in the uploads folder
 // We get all the names of the files in the folder
