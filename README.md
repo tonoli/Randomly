@@ -21,6 +21,8 @@ I tried to comment as much as possible my code so it's readable.
 
 ### Install
 
+To run the nodejs server you need to have nodejs installed, for mac you can use homebrew: brew install node
+
 - **git clone github.com/tonoli/Randomly**
 - **cd Randomly**
 - **npm install**
